@@ -1,0 +1,24 @@
+int rows = 8;  // Número de filas del tablero
+int cols = 8;   // Número de columnas del tablero
+int tileSize;  // Tamaño de cada casilla del tablero
+
+void setup() {
+  size(400, 400);  // Establece el tamaño del lienzo
+  tileSize = width / cols; // Calcula el tamaño de cada casilla
+}
+void draw() {
+  background(255);  // Establece el fondo del lienzo
+  drawBoard();   // Dibuja el tablero de ajedrez
+}
+void drawBoard() {
+  for (int i = 0; i < rows; i++) { // Bucle para recorrer las filas
+    for (int j = 0; j < cols; j++) {  // Bucle para recorrer las columnas
+      if ((i + j) % 2 == 0) {    // Si la suma de fila y columna es par
+        fill(255);   // Rellena la casilla de blanco
+      } else {  // Si no
+        fill(0);   // Rellena la casilla de negro
+      }
+      rect(j * tileSize, i * tileSize, tileSize, tileSize); // Dibuja una casilla del tablero
+    }
+  }
+}
